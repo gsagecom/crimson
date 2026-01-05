@@ -6,7 +6,7 @@ const timeline = [
     year: "1993",
     title: "Company Founded",
     description:
-      "G. Sage & Associates was established with a vision to transform megaproject management through intelligent solutions.",
+      "Waterfall Consult was established with a vision to transform megaproject management through intelligent solutions.",
   },
   {
     year: "2013",
@@ -48,7 +48,7 @@ const timeline = [
     year: "2025",
     title: "Intelligent Future",
     description:
-      "Continuing to redefine what's possible in intelligent 'Smart Cities,' infrastructure and megaproject delivery.",
+      "Consolidated into Crimson Infrastructure Corporation - Continuing to redefine what's possible in intelligent 'Smart Cities,' infrastructure and megaproject delivery.",
   },
 ];
 
