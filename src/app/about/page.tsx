@@ -24,19 +24,19 @@ const timeline = [
     year: "2021",
     title: "Technology Innovation",
     description:
-      "Launched AI-focused quality assurance solutions and advanced governance frameworks.",
+      "Launched Multicloud Transformation and AI-focused quality assurance solutions and advanced governance frameworks.",
   },
   {
     year: "2022",
     title: "Global Reach",
     description:
-      "Extended operations to UK | USA & Americas | EU | AFRICA markets, becoming truly global.",
+      "Extended operations to Port Securitisation - UK | USA & Americas | EU | Saudi Arabia | AFRICA markets, becoming truly global.",
   },
   {
     year: "2023",
     title: "Cyber Security Leadership",
     description:
-      "Established cyber security and Secure Multimedia partnerships, leading industry innovation in the Global Shipping and Logistics sector.",
+      "Established cyber security and Secure Multimedia partnerships, leading industry Cyber Security innovation in the Global Shipping and Logistics sector.",
   },
   {
     year: "2024",
