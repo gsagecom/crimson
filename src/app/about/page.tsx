@@ -3,22 +3,22 @@ import { Globe } from "lucide-react";
 
 const timeline = [
   {
-    year: "2011",
+    year: "1993",
     title: "Company Founded",
     description:
-      "Crimson Industries established with a vision to transform megaproject management through intelligent solutions.",
+      "G. Sage & Associates was established with a vision to transform megaproject management through intelligent solutions.",
   },
   {
-    year: "2019",
-    title: "First Major Contract",
+    year: "2013",
+    title: "First Major Contract backed by Madison 488 Ltd",
     description:
       "Secured our first major infrastructure project, establishing our reputation in the region.",
   },
   {
     year: "2020",
-    title: "Crimson Industries Taskforce Established",
+    title: "Industry Taskforce Established",
     description:
-      "Crimson Industries Taskforce Established to provide strategic partnerships across global regions on large programmes.",
+      "Madison backed Taskforce Established to provide strategic partnerships across global regions on large programmes.",
   },
   {
     year: "2021",
@@ -36,19 +36,19 @@ const timeline = [
     year: "2023",
     title: "Cyber Security Leadership",
     description:
-      "Established cyber security and surveillance partnerships, leading industry innovation in the shipping and logistics sector.",
+      "Established cyber security and Secure Multimedia partnerships, leading industry innovation in the Global Shipping and Logistics sector.",
   },
   {
     year: "2024",
     title: "Public Safety Excellence",
     description:
-      "Building the dominant presence in design of next-generation emergency services and public safety systems in the developing world.",
+      "Building the dominant presence in design of next-generation emergency services (NEXES) and public safety systems in the developing world.",
   },
   {
     year: "2025",
     title: "Intelligent Future",
     description:
-      "Continuing to redefine what's possible in intelligent infrastructure and megaproject delivery.",
+      "Continuing to redefine what's possible in intelligent 'Smart Cities,' infrastructure and megaproject delivery.",
   },
 ];
 
