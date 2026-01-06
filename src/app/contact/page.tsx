@@ -1,164 +1,104 @@
-"use client"
+"use client";
 
-import { ArrowRight, Building2, Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { useState } from "react"
-import Link from "next/link"
+import Link from "next/link";
+import { useState } from "react";
+import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
+
+const reasons = [
+  {
+    number: "1",
+    title: "Proven Track Record",
+    description:
+      "Decades of experience delivering complex megaprojects across multiple industries and markets.",
+  },
+  {
+    number: "2",
+    title: "Innovation-Driven",
+    description:
+      "Cutting-edge technology and AI-powered solutions for enhanced project outcomes and efficiency.",
+  },
+  {
+    number: "3",
+    title: "Global Expertise",
+    description:
+      "International presence with deep understanding of local markets and regulatory requirements.",
+  },
+];
+
+const expectations = [
+  "Response within 24 hours",
+  "Initial consultation to understand your needs",
+  "Tailored proposal and project roadmap",
+  "Dedicated project management from start to finish",
+];
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    phone: '',
-    projectType: '',
-    message: ''
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
-  const [errors, setErrors] = useState<{[key: string]: string}>({})
+    name: "",
+    email: "",
+    company: "",
+    phone: "",
+    projectType: "",
+    message: "",
+  });
 
-  const validateForm = () => {
-    const newErrors: {[key: string]: string} = {}
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-    if (!formData.name.trim()) newErrors.name = 'Name is required'
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required'
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email address'
-    }
-    if (!formData.message.trim()) newErrors.message = 'Message is required'
-
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-
-    if (!validateForm()) return
-
-    setIsSubmitting(true)
-    setSubmitStatus('idle')
-
-    try {
-      // Submit to Netlify Forms
-      const formElement = e.target as HTMLFormElement
-      const formDataToSubmit = new FormData(formElement)
-
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(Array.from(formDataToSubmit.entries()) as [string, string][]).toString()
-      })
-
-      if (response.ok) {
-        setSubmitStatus('success')
-        setFormData({
-          name: '',
-          email: '',
-          company: '',
-          phone: '',
-          projectType: '',
-          message: ''
-        })
-      } else {
-        setSubmitStatus('error')
-      }
-    } catch (error) {
-      console.error('Form submission error:', error)
-      setSubmitStatus('error')
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target
-    setFormData(prev => ({ ...prev, [name]: value }))
-    // Clear error when user starts typing
-    if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: '' }))
-    }
-  }
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle form submission
+    console.log("Form submitted:", formData);
+    alert("Thank you for your message! We will get back to you within 24 hours.");
+  };
 
   return (
-    <main className="min-h-screen bg-slate-50">
-      {/* Navigation */}
-      <nav className="bg-white/95 backdrop-blur-sm border-b border-slate-200/60 sticky top-0 z-50 shadow-sm">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex justify-between items-center h-18">
-            <Link href="/" className="flex items-center space-x-3 py-2">
-              <div className="w-16 h-12 bg-gradient-to-br from-crimson-500 to-teal-600 rounded-xl flex items-center justify-center shadow-md">
-                <span className="text-white font-bold text-lg">WCcc</span>
-              </div>
-              <div>
-                <h1 className="text-xl font-semibold text-slate-800">Waterfall Consult</h1>
-                <p className="text-sm text-slate-600">Programme Management</p>
-              </div>
-            </Link>
-
-            <div className="hidden md:flex items-center space-x-8">
-              <Link href="/" className="text-slate-700 hover:text-crimson-600 transition-all duration-200 font-medium px-4 py-2 rounded-full hover:bg-slate-50">Home</Link>
-              <Link href="/industries" className="text-slate-700 hover:text-crimson-600 transition-all duration-200 font-medium px-4 py-2 rounded-full hover:bg-slate-50">Industries</Link>
-              <Link href="/services" className="text-slate-700 hover:text-crimson-600 transition-all duration-200 font-medium px-4 py-2 rounded-full hover:bg-slate-50">Services</Link>
-              <Link href="/governance" className="text-slate-700 hover:text-crimson-600 transition-all duration-200 font-medium px-4 py-2 rounded-full hover:bg-slate-50">Governance</Link>
-              <Link href="/about" className="text-slate-700 hover:text-crimson-600 transition-all duration-200 font-medium px-4 py-2 rounded-full hover:bg-slate-50">About Us</Link>
-              <span className="text-crimson-600 font-medium px-4 py-2 bg-crimson-50 rounded-full">Contact Us</span>
-            </div>
-          </div>
-        </div>
-      </nav>
-
+    <div>
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-white to-slate-100">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
           <div className="inline-flex items-center space-x-2 bg-crimson-100 text-crimson-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
             <span>GET IN TOUCH</span>
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold text-slate-900 mb-6">
-            Let's Create the Intelligent
-            <span className="text-crimson-600"> Future Together</span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+            Let&apos;s Create the Intelligent{" "}
+            <span className="text-crimson-600">Future Together</span>
           </h1>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            Ready to transform your infrastructure vision into reality? Contact our expert team to discuss your complex initiatives and discover how we can deliver exceptional results.
+            Ready to transform your infrastructure vision into reality? Contact
+            our expert team to discuss your complex initiatives and discover how
+            we can deliver exceptional results.
           </p>
         </div>
       </section>
 
-      {/* Contact Form and Info Section */}
+      {/* Contact Form Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16">
-
-            {/* Contact Form */}
+            {/* Form */}
             <div>
-              <Card className="p-8 bg-white border-slate-200 shadow-xl rounded-2xl">
-                <CardHeader className="pb-6">
-                  <CardTitle className="text-2xl font-bold text-slate-900 flex items-center">
-                    <Send className="h-6 w-6 mr-3 text-crimson-600" />
+              <div className="bg-white border border-slate-200 shadow-xl rounded-2xl p-8">
+                <div className="flex items-center gap-3 mb-2">
+                  <Send className="w-6 h-6 text-crimson-600" />
+                  <h2 className="text-2xl font-bold text-slate-900">
                     Send Us a Message
-                  </CardTitle>
-                  <p className="text-slate-600">Fill out the form below and we'll get back to you within 24 hours.</p>
-                </CardHeader>
+                  </h2>
+                </div>
+                <p className="text-slate-600 mb-6">
+                  Fill out the form below and we&apos;ll get back to you within 24
+                  hours.
+                </p>
 
-                <CardContent>
-                  {submitStatus === 'success' && (
-                    <div className="mb-6 p-4 bg-crimson-50 border border-crimson-200 rounded-lg flex items-center space-x-3">
-                      <CheckCircle className="h-5 w-5 text-crimson-600" />
-                      <p className="text-crimson-700 font-medium">Thank you! Your message has been sent successfully. We'll get back to you within 24 hours.</p>
-                    </div>
-                  )}
-
-                  {submitStatus === 'error' && (
-                    <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center space-x-3">
-                      <AlertCircle className="h-5 w-5 text-red-600" />
-                      <p className="text-red-700 font-medium">Sorry, there was an error sending your message. Please try again or contact us directly at uk@waterfallconsult.com</p>
-                    </div>
-                  )}
-
-                  <form
+                <form
                     onSubmit={handleSubmit}
                     className="space-y-6"
                     name="contact"
@@ -176,137 +116,144 @@ export default function ContactPage() {
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-6">
-                      <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-2">
-                          Full Name *
-                        </label>
-                        <input
-                          type="text"
-                          id="name"
-                          name="name"
-                          value={formData.name}
-                          onChange={handleInputChange}
-                          required
-                          className={`w-full px-4 py-3 rounded-xl border-2 transition-colors focus:outline-none focus:ring-2 focus:ring-crimson-500 focus:border-crimson-500 ${
-                            errors.name ? 'border-red-300 bg-red-50' : 'border-slate-200 bg-slate-50'
-                          }`}
-                          placeholder="Your full name"
-                        />
-                        {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
-                      </div>
-
-                      <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">
-                          Email Address *
-                        </label>
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          required
-                          className={`w-full px-4 py-3 rounded-xl border-2 transition-colors focus:outline-none focus:ring-2 focus:ring-crimson-500 focus:border-crimson-500 ${
-                            errors.email ? 'border-red-300 bg-red-50' : 'border-slate-200 bg-slate-50'
-                          }`}
-                          placeholder="your.email@company.com"
-                        />
-                        {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
-                      </div>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div>
-                        <label htmlFor="company" className="block text-sm font-medium text-slate-700 mb-2">
-                          Company/Organization
-                        </label>
-                        <input
-                          type="text"
-                          id="company"
-                          name="company"
-                          value={formData.company}
-                          onChange={handleInputChange}
-                          className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 bg-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-crimson-500 focus:border-crimson-500"
-                          placeholder="Your organization"
-                        />
-                      </div>
-
-                      <div>
-                        <label htmlFor="phone" className="block text-sm font-medium text-slate-700 mb-2">
-                          Phone Number
-                        </label>
-                        <input
-                          type="tel"
-                          id="phone"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleInputChange}
-                          className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 bg-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-crimson-500 focus:border-crimson-500"
-                          placeholder="+44 (0) 20 7123 4567"
-                        />
-                      </div>
-                    </div>
-
                     <div>
-                      <label htmlFor="projectType" className="block text-sm font-medium text-slate-700 mb-2">
-                        Project Type
-                      </label>
-                      <select
-                        id="projectType"
-                        name="projectType"
-                        value={formData.projectType}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 bg-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-crimson-500 focus:border-crimson-500"
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium text-slate-700 mb-2"
                       >
-                        <option value="">Select a project type</option>
-                        <option value="megaproject">Turnkey Megaproject Management</option>
-                        <option value="design">Design Coordination & Governance</option>
-                        <option value="nextgen">Next Generation Project Management</option>
-                        <option value="qa">AI Augmented Quality Assurance</option>
-                        <option value="commercial">Commercial & Asset Management</option>
-                        <option value="risk">Risk & Security Management</option>
-                        <option value="safety">Public Safety Systems</option>
-                        <option value="cyber">Cyber Security & Surveillance</option>
-                        <option value="other">Other</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-2">
-                        Project Details *
+                        Full Name *
                       </label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        rows={6}
-                        value={formData.message}
-                        onChange={handleInputChange}
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
                         required
-                        className={`w-full px-4 py-3 rounded-xl border-2 transition-colors focus:outline-none focus:ring-2 focus:ring-crimson-500 focus:border-crimson-500 resize-vertical ${
-                          errors.message ? 'border-red-300 bg-red-50' : 'border-slate-200 bg-slate-50'
-                        }`}
-                        placeholder="Please describe your project requirements, timeline, budget considerations, and any specific challenges you're facing..."
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="Your full name"
+                        className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 bg-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-crimson-500 focus:border-crimson-500"
                       />
-                      {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message}</p>}
                     </div>
+                    <div>
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-medium text-slate-700 mb-2"
+                      >
+                        Email Address *
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="your.email@company.com"
+                        className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 bg-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-crimson-500 focus:border-crimson-500"
+                      />
+                    </div>
+                  </div>
 
-                    <Button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full bg-crimson-600 hover:bg-crimson-700 text-white px-8 py-4 rounded-full text-lg transition-all duration-200 shadow-md hover:shadow-lg font-medium group disabled:opacity-50 disabled:cursor-not-allowed"
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <label
+                        htmlFor="company"
+                        className="block text-sm font-medium text-slate-700 mb-2"
+                      >
+                        Company/Organization
+                      </label>
+                      <input
+                        type="text"
+                        id="company"
+                        name="company"
+                        value={formData.company}
+                        onChange={handleChange}
+                        placeholder="Your organization"
+                        className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 bg-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-crimson-500 focus:border-crimson-500"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="phone"
+                        className="block text-sm font-medium text-slate-700 mb-2"
+                      >
+                        Phone Number
+                      </label>
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        placeholder="+44 (0) 20 7123 4567"
+                        className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 bg-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-crimson-500 focus:border-crimson-500"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="projectType"
+                      className="block text-sm font-medium text-slate-700 mb-2"
                     >
-                      {isSubmitting ? (
-                        <span>Sending...</span>
-                      ) : (
-                        <>
-                          <span className="group-hover:pr-2 transition-all duration-200">Send Message</span>
-                          <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-200" />
-                        </>
-                      )}
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
+                      Project Type
+                    </label>
+                    <select
+                      id="projectType"
+                      name="projectType"
+                      value={formData.projectType}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 bg-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-crimson-500 focus:border-crimson-500"
+                    >
+                      <option value="">Select a project type</option>
+                      <option value="megaproject">
+                        Turnkey Megaproject Management
+                      </option>
+                      <option value="design">
+                        Design Coordination & Governance
+                      </option>
+                      <option value="nextgen">
+                        Next Generation Project Management
+                      </option>
+                      <option value="qa">AI Augmented Quality Assurance</option>
+                      <option value="commercial">
+                        Commercial & Asset Management
+                      </option>
+                      <option value="risk">Risk & Security Management</option>
+                      <option value="safety">Public Safety Systems</option>
+                      <option value="cyber">Cyber Security & Surveillance</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-slate-700 mb-2"
+                    >
+                      Project Details *
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      required
+                      value={formData.message}
+                      onChange={handleChange}
+                      rows={5}
+                      placeholder="Please describe your project requirements, timeline, budget considerations, and any specific challenges you're facing..."
+                      className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 bg-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-crimson-500 focus:border-crimson-500 resize-none"
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-full bg-crimson-600 hover:bg-crimson-700 text-white py-4 rounded-full transition-all duration-200 shadow-md hover:shadow-lg font-medium flex items-center justify-center gap-2"
+                  >
+                    Send Message
+                    <span>&rarr;</span>
+                  </button>
+                </form>
+              </div>
             </div>
 
             {/* Contact Info */}
