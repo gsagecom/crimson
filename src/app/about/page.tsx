@@ -102,14 +102,14 @@ export default function AboutPage() {
                 Redefining What&apos;s Possible
               </h2>
               <p className="text-xl text-slate-600 leading-relaxed">
-                Founded as G Sage and Associates in 1993 and backed by Madison488 Ltd and a
-                consortium of industry experts, the Crimson Industries Corporation,
+                Founded as G Sage and Associates in 1993 and acquired by Madison488 Ltd in 2013 we are
+                a cconsortium of industry experts, the Crimson Industries Corporation,
                 Programme Management Taskforce transcends mere project management,
                 we forge strategic partnerships with global leaders and provide
                 transformative infrastructure solutions. We deliver beyond simply
                 blueprints, we craft lasting legacies across any region, from
                 civil infrastructure and transport to next generation emergency
-                services (NEXES) and cyber security projects.
+                services (NEXES) and cybersecurity projects.
               </p>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
