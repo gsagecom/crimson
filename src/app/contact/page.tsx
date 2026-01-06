@@ -57,7 +57,7 @@ export default function ContactPage() {
     e.preventDefault();
     // Handle form submission
     console.log("Form submitted:", formData);
-    alert("Thank you for your message! We will get back to you within 24 hours.");
+    alert("Thank you for your message! We will get back to you within the next working day.");
   };
 
   return (
