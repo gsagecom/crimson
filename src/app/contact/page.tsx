@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Send, Loader2 } from "lucide-react";
 
 const reasons = [
   {
@@ -41,6 +41,7 @@ export default function ContactPage() {
     projectType: "",
     message: "",
   });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -53,11 +54,38 @@ export default function ContactPage() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
-    alert("Thank you for your message! We will get back to you within the next working day.");
+    setStatus("loading");
+
+    const formBody = new URLSearchParams({
+      "form-name": "contact",
+      ...formData,
+    }).toString();
+
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: formBody,
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          phone: "",
+          projectType: "",
+          message: "",
+        });
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      setStatus("error");
+    }
   };
 
   return (
@@ -98,7 +126,19 @@ export default function ContactPage() {
                   hours.
                 </p>
 
-                <form
+                {status === "success" ? (
+                  <div className="bg-green-50 border border-green-200 rounded-xl p-6 text-center">
+                    <h3 className="text-lg font-semibold text-green-800 mb-2">Message Sent Successfully</h3>
+                    <p className="text-green-700">Thank you for your message. We'll get back to you within 24 hours.</p>
+                    <button
+                      onClick={() => setStatus("idle")}
+                      className="mt-4 text-green-700 underline hover:text-green-800"
+                    >
+                      Send another message
+                    </button>
+                  </div>
+                ) : (
+                  <form
                     onSubmit={handleSubmit}
                     className="space-y-6"
                     name="contact"
@@ -106,153 +146,170 @@ export default function ContactPage() {
                     data-netlify="true"
                     data-netlify-honeypot="bot-field"
                   >
-                    {/* Hidden field for Netlify Forms */}
                     <input type="hidden" name="form-name" value="contact" />
 
                     {/* Honeypot field for spam protection */}
-                    <div style={{ display: 'none' }}>
-                      <label htmlFor="bot-field">Don't fill this out if you're human:</label>
-                      <input name="bot-field" />
+                    <p className="hidden">
+                      <label>
+                        Don't fill this out if you're human: <input name="bot-field" />
+                      </label>
+                    </p>
+
+                    {status === "error" && (
+                      <div className="bg-red-50 border border-red-200 rounded-xl p-4 text-red-700">
+                        Something went wrong. Please try again or email us directly.
+                      </div>
+                    )}
+
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <label
+                          htmlFor="name"
+                          className="block text-sm font-medium text-slate-700 mb-2"
+                        >
+                          Full Name *
+                        </label>
+                        <input
+                          type="text"
+                          id="name"
+                          name="name"
+                          required
+                          value={formData.name}
+                          onChange={handleChange}
+                          placeholder="Your full name"
+                          className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 bg-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-crimson-500 focus:border-crimson-500"
+                        />
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="email"
+                          className="block text-sm font-medium text-slate-700 mb-2"
+                        >
+                          Email Address *
+                        </label>
+                        <input
+                          type="email"
+                          id="email"
+                          name="email"
+                          required
+                          value={formData.email}
+                          onChange={handleChange}
+                          placeholder="your.email@company.com"
+                          className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 bg-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-crimson-500 focus:border-crimson-500"
+                        />
+                      </div>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <label
+                          htmlFor="company"
+                          className="block text-sm font-medium text-slate-700 mb-2"
+                        >
+                          Company/Organization
+                        </label>
+                        <input
+                          type="text"
+                          id="company"
+                          name="company"
+                          value={formData.company}
+                          onChange={handleChange}
+                          placeholder="Your organization"
+                          className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 bg-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-crimson-500 focus:border-crimson-500"
+                        />
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="phone"
+                          className="block text-sm font-medium text-slate-700 mb-2"
+                        >
+                          Phone Number
+                        </label>
+                        <input
+                          type="tel"
+                          id="phone"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleChange}
+                          placeholder="+44 (0) 20 7123 4567"
+                          className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 bg-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-crimson-500 focus:border-crimson-500"
+                        />
+                      </div>
+                    </div>
+
                     <div>
                       <label
-                        htmlFor="name"
+                        htmlFor="projectType"
                         className="block text-sm font-medium text-slate-700 mb-2"
                       >
-                        Full Name *
+                        Project Type
                       </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
+                      <select
+                        id="projectType"
+                        name="projectType"
+                        value={formData.projectType}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 bg-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-crimson-500 focus:border-crimson-500"
+                      >
+                        <option value="">Select a project type</option>
+                        <option value="megaproject">
+                          Turnkey Megaproject Management
+                        </option>
+                        <option value="design">
+                          Design Coordination & Governance
+                        </option>
+                        <option value="nextgen">
+                          Next Generation Project Management
+                        </option>
+                        <option value="qa">AI Augmented Quality Assurance</option>
+                        <option value="commercial">
+                          Commercial & Asset Management
+                        </option>
+                        <option value="risk">Risk & Security Management</option>
+                        <option value="safety">Public Safety Systems</option>
+                        <option value="cyber">Cyber Security & Surveillance</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label
+                        htmlFor="message"
+                        className="block text-sm font-medium text-slate-700 mb-2"
+                      >
+                        Project Details *
+                      </label>
+                      <textarea
+                        id="message"
+                        name="message"
                         required
-                        value={formData.name}
+                        value={formData.message}
                         onChange={handleChange}
-                        placeholder="Your full name"
-                        className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 bg-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-crimson-500 focus:border-crimson-500"
+                        rows={5}
+                        placeholder="Please describe your project requirements, timeline, budget considerations, and any specific challenges you're facing..."
+                        className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 bg-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-crimson-500 focus:border-crimson-500 resize-none"
                       />
                     </div>
-                    <div>
-                      <label
-                        htmlFor="email"
-                        className="block text-sm font-medium text-slate-700 mb-2"
-                      >
-                        Email Address *
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        required
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="your.email@company.com"
-                        className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 bg-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-crimson-500 focus:border-crimson-500"
-                      />
-                    </div>
-                  </div>
 
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label
-                        htmlFor="company"
-                        className="block text-sm font-medium text-slate-700 mb-2"
-                      >
-                        Company/Organization
-                      </label>
-                      <input
-                        type="text"
-                        id="company"
-                        name="company"
-                        value={formData.company}
-                        onChange={handleChange}
-                        placeholder="Your organization"
-                        className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 bg-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-crimson-500 focus:border-crimson-500"
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="phone"
-                        className="block text-sm font-medium text-slate-700 mb-2"
-                      >
-                        Phone Number
-                      </label>
-                      <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        placeholder="+44 (0) 20 7123 4567"
-                        className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 bg-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-crimson-500 focus:border-crimson-500"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="projectType"
-                      className="block text-sm font-medium text-slate-700 mb-2"
+                    <button
+                      type="submit"
+                      disabled={status === "loading"}
+                      className="w-full bg-crimson-600 hover:bg-crimson-700 disabled:bg-crimson-400 text-white py-4 rounded-full transition-all duration-200 shadow-md hover:shadow-lg font-medium flex items-center justify-center gap-2"
                     >
-                      Project Type
-                    </label>
-                    <select
-                      id="projectType"
-                      name="projectType"
-                      value={formData.projectType}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 bg-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-crimson-500 focus:border-crimson-500"
-                    >
-                      <option value="">Select a project type</option>
-                      <option value="megaproject">
-                        Turnkey Megaproject Management
-                      </option>
-                      <option value="design">
-                        Design Coordination & Governance
-                      </option>
-                      <option value="nextgen">
-                        Next Generation Project Management
-                      </option>
-                      <option value="qa">AI Augmented Quality Assurance</option>
-                      <option value="commercial">
-                        Commercial & Asset Management
-                      </option>
-                      <option value="risk">Risk & Security Management</option>
-                      <option value="safety">Public Safety Systems</option>
-                      <option value="cyber">Cyber Security & Surveillance</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-medium text-slate-700 mb-2"
-                    >
-                      Project Details *
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      required
-                      value={formData.message}
-                      onChange={handleChange}
-                      rows={5}
-                      placeholder="Please describe your project requirements, timeline, budget considerations, and any specific challenges you're facing..."
-                      className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 bg-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-crimson-500 focus:border-crimson-500 resize-none"
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full bg-crimson-600 hover:bg-crimson-700 text-white py-4 rounded-full transition-all duration-200 shadow-md hover:shadow-lg font-medium flex items-center justify-center gap-2"
-                  >
-                    Send Message
-                    <span>&rarr;</span>
-                  </button>
-                </form>
+                      {status === "loading" ? (
+                        <>
+                          <Loader2 className="w-5 h-5 animate-spin" />
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          Send Message
+                          <span>&rarr;</span>
+                        </>
+                      )}
+                    </button>
+                  </form>
+                )}
               </div>
             </div>
 
