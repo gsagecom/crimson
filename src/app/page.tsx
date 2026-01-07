@@ -55,7 +55,7 @@ const services = [
   {
     icon: Lock,
     title: "Cyber Security & Surveillance",
-    description: "Next-generation public safety security solutions",
+    description: "Next-generation Cyber and Infrastructure Security solutions",
   },
 ];
 
