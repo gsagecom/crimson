@@ -86,7 +86,7 @@ export default function Home() {
               CRIMSON INDUSTRIES TASKFORCE
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Programme Delivery for your most{" "}
+              Next-Gen Programme Delivery for your most{" "}
               <span className="text-crimson-500">Complex Initiatives</span>
             </h1>
             <p className="text-xl text-slate-300 mb-8 leading-relaxed">
