@@ -62,7 +62,7 @@ const services = [
 const industries = [
   { icon: Phone, title: "Telecom Infrastructure" },
   { icon: Truck, title: "Logistics and Security" },
-  { icon: Siren, title: "Emergency Services" },
+  { icon: Siren, title: "Next Generation Emergency Services" },
   { icon: Radio, title: "Next Generation 999/911/112" },
   { icon: Lock, title: "Surveillance & cyber security" },
 ];
