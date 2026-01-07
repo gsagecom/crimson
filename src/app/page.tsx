@@ -20,17 +20,17 @@ const services = [
   {
     icon: FileText,
     title: "Turnkey Megaproject Management",
-    description: "End-to-end project delivery from conception to completion",
+    description: "Predictable end-to-end project delivery from conception to completion",
   },
   {
     icon: Shield,
     title: "Design Coordination & Governance Solutions",
-    description: "Strategic oversight and coordination excellence",
+    description: "Strategic oversight and deployment coordination excellence",
   },
   {
     icon: Zap,
-    title: "Next Generation Project Management",
-    description: "AI-enhanced project management methodologies",
+    title: "Next Generation Predictable Project Management",
+    description: "AI-enhanced project management via Strategy Exection Office ",
   },
   {
     icon: Users,
@@ -40,22 +40,22 @@ const services = [
   {
     icon: Building,
     title: "Commercial & Asset Management",
-    description: "Comprehensive asset lifecycle management",
+    description: "Comprehensive procurement-to-sunset asset lifecycle management",
   },
   {
     icon: AlertTriangle,
     title: "Risk & Security Management",
-    description: "Proactive risk mitigation strategies",
+    description: "Proactive risk prediction and pivot strategies",
   },
   {
     icon: Eye,
     title: "Public Safety Systems",
-    description: "Advanced public safety infrastructure",
+    description: "Next-generation Emergency Services (NEXES)",
   },
   {
     icon: Lock,
     title: "Cyber Security & Surveillance",
-    description: "Next-generation security solutions",
+    description: "Next-generation public safety security solutions",
   },
 ];
 
@@ -90,7 +90,7 @@ export default function Home() {
               <span className="text-crimson-500">Complex Initiatives</span>
             </h1>
             <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-              Predictable transformation through governance, technology, and
+              Predictable transformation through Next Generation governance, technology, and
               disciplined execution.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
