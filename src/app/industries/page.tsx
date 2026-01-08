@@ -24,14 +24,14 @@ const industries = [
     icon: Shield,
     title: "Logistics and Security",
     description:
-      "Comprehensive logistics and security solutions for critical infrastructure and supply chain management.",
+      "Comprehensive logistics and cyber security solutions for critical infrastructure and supply chain management.",
     areas: ["Supply Chain", "Port Security", "Asset Tracking", "Risk Management"],
   },
   {
     icon: Zap,
     title: "Emergency Services",
     description:
-      "Next-generation emergency response systems and public safety infrastructure development.",
+      "Next-generation emergency response systems and public safety infrastructure deployments.",
     areas: ["Emergency Response", "Medical Systems", "Crisis Management", "Public Safety"],
   },
   {
@@ -80,7 +80,7 @@ const capabilities = [
     icon: AlertTriangle,
     title: "Risk Management",
     description:
-      "Industry-specific risk assessment and mitigation strategies for optimal project outcomes.",
+      "Industry-specific confidential risk assessment and mitigation strategies for predictable project outcomes.",
   },
 ];
 
