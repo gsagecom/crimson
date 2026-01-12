@@ -1,149 +1,195 @@
 import Link from "next/link";
 import {
-  Phone,
+  FileText,
   Shield,
   Zap,
-  Radio,
-  Eye,
-  DollarSign,
-  Target,
-  Settings,
-  FileCheck,
+  CheckCircle,
+  Building,
   AlertTriangle,
+  Eye,
+  Lock,
 } from "lucide-react";
 
-const industries = [
+const services = [
   {
-    icon: Phone,
-    title: "Telecom Infrastructure",
+    icon: FileText,
+    title: "Emergency Services & Public Safety",
     description:
-      "Advanced telecommunications infrastructure for next-generation connectivity and smart communications.",
-    areas: ["5G Networks", "Fiber Optic Systems", "Smart Infrastructure", "Network Security"],
+      "Next-generation emergency communications infrastructure for national and regional deployments.",
+    features: [
+      "NG911/NG112 call handling and dispatch systems",
+      "Multi-agency interoperability platforms",
+      "CAD integration and legacy system migration",
+      "24/7 operational continuity during transition",
+    ],
   },
   {
     icon: Shield,
-    title: "Logistics and Security",
+    title: "Critical National Infrastructure",
     description:
-      "Comprehensive logistics and cyber security solutions for critical infrastructure and supply chain management.",
-    areas: ["Supply Chain", "Port Security", "Asset Tracking", "Risk Management"],
+      "Secure communications networks for government command, control, and coordination operations",
+    features: [
+      "Hardened data centre design and implementation",
+      "Redundant transmission systems",
+      "Cyber-resilient network architectures",
+      "Sovereign data residency solutions",
+    ],
   },
   {
     icon: Zap,
-    title: "Emergency Services",
+    title: "Next Generation Project Management",
     description:
-      "Next-generation emergency response systems and public safety infrastructure deployments.",
-    areas: ["Emergency Response", "Medical Systems", "Crisis Management", "Public Safety"],
+      "Advanced project management methodologies leveraging cutting-edge technology and innovation.",
+    features: [
+      "Digital transformation",
+      "Advanced methodologies",
+      "Technology integration",
+      "Performance analytics",
+    ],
   },
   {
-    icon: Radio,
-    title: "Next Generation 999/911/112",
+    icon: CheckCircle,
+    title: "AI Focussed Quality Assurance and Compliance Solutions",
     description:
-      "Advanced emergency communication systems for enhanced public safety and rapid response coordination.",
-    areas: ["Emergency Communications", "Call Center Technology", "Response Coordination", "System Integration"],
+      "AI-powered quality assurance and compliance management for enhanced project outcomes.",
+    features: [
+      "AI-powered QA",
+      "Automated compliance",
+      "Predictive analytics",
+      "Risk mitigation",
+    ],
   },
   {
-    icon: Eye,
-    title: "Surveillance & cyber security",
+    icon: Building,
+    title: "Commercial & Asset Management",
     description:
-      "Advanced surveillance and cyber security solutions for protecting critical infrastructure and digital assets.",
-    areas: ["Cyber Protection", "Surveillance Systems", "Threat Detection", "Security Monitoring"],
-  },
-  {
-    icon: DollarSign,
-    title: "Financial Services & Assurance",
-    description:
-      "Driving positive technology transformation in financial services for clients and their customers.",
-    areas: ["Technology Transformation", "Programme Management", "Six Sigma Process", "Security Solutions"],
-  },
-];
-
-const capabilities = [
-  {
-    icon: Target,
-    title: "Strategic Planning",
-    description:
-      "Comprehensive industry analysis and strategic roadmap development for infrastructure projects.",
-  },
-  {
-    icon: Settings,
-    title: "Technology Integration",
-    description:
-      "Seamless integration of cutting-edge technology solutions across multiple industry verticals.",
-  },
-  {
-    icon: FileCheck,
-    title: "Regulatory Compliance",
-    description:
-      "Expert navigation of complex regulatory requirements and compliance frameworks.",
+      "Strategic commercial and asset management solutions for maximum value optimization.",
+    features: [
+      "Asset optimization",
+      "Commercial strategy",
+      "Value engineering",
+      "Lifecycle management",
+    ],
   },
   {
     icon: AlertTriangle,
-    title: "Risk Management",
+    title: "Risk & Security Management",
     description:
-      "Industry-specific confidential risk assessment and mitigation strategies for predictable project outcomes.",
+      "Comprehensive risk assessment and security management for complex infrastructure projects.",
+    features: [
+      "Risk assessment",
+      "Security protocols",
+      "Threat mitigation",
+      "Compliance monitoring",
+    ],
+  },
+  {
+    icon: Eye,
+    title: "Public Safety Systems",
+    description:
+      "Public safety systems development and implementation for next-generation emergency response.",
+    features: [
+      "Emergency systems",
+      "Response coordination",
+      "Safety protocols",
+      "System integration",
+    ],
+  },
+    {
+    icon: FileText,
+    title: "Turnkey Megaproject Management",
+    description:
+      "Complete project oversight from conception to completion with comprehensive management solutions.",
+    features: [
+      "End-to-end project delivery",
+      "Strategic planning",
+      "Resource optimization",
+      "Quality assurance",
+    ],
   },
 ];
 
-export default function IndustriesPage() {
+const reasons = [
+  {
+    number: "1",
+    title: "Proven Track Record",
+    description:
+      "Decades of experience delivering complex megaprojects across multiple industries and markets.",
+  },
+  {
+    number: "2",
+    title: "Innovation-Driven",
+    description:
+      "Cutting-edge technology and AI-powered solutions for enhanced project outcomes and efficiency.",
+  },
+  {
+    number: "3",
+    title: "Global Expertise",
+    description:
+      "International presence with deep understanding of local markets and regulatory requirements.",
+  },
+];
+
+export default function ServicesPage() {
   return (
     <div>
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-white to-slate-100">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-            Industries We Serve
+            Our Services
           </h1>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            Crimson Industries Corporation delivers mission-critical infrastructure to government clients operating in complex, high-stakes environments. We specialise in programmes where failure is not an option.
+            Comprehensive solutions for megaproject management, from strategic
+            planning to intelligent infrastructure delivery. Discover how our
+            expertise can transform your project vision into reality.
           </p>
         </div>
       </section>
 
-      {/* Specialized Industry Expertise */}
+      {/* Services Grid */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              Specialized Industry Expertise
+              Expert Solutions for Every Challenge
             </h2>
             <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-              Our deep industry knowledge and specialized expertise enable us to
-              deliver tailored solutions that address the unique challenges and
-              requirements of each sector.
+              Our comprehensive suite of services covers every aspect of
+              megaproject delivery, from initial conception through final
+              implementation and beyond.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {industries.map((industry, index) => (
+          <div className="grid md:grid-cols-2 gap-8">
+            {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-white border border-slate-200 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+                className="bg-white border border-slate-200 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                <div className="w-14 h-14 bg-crimson-100 rounded-xl flex items-center justify-center mb-4">
-                  <industry.icon className="w-7 h-7 text-crimson-600" />
+                <div className="w-14 h-14 bg-crimson-100 rounded-xl flex items-center justify-center mb-6">
+                  <service.icon className="w-7 h-7 text-crimson-600" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">
-                  {industry.title}
+                  {service.title}
                 </h3>
-                <p className="text-slate-600 mb-4">{industry.description}</p>
-                <div className="mb-4">
-                  <p className="text-sm font-semibold text-slate-700 mb-2">
-                    Key Focus Areas:
+                <p className="text-slate-600 mb-4">{service.description}</p>
+                <div className="mb-6">
+                  <p className="text-sm font-semibold text-slate-700 mb-3">
+                    Key Features:
                   </p>
-                  <div className="flex flex-wrap gap-2">
-                    {industry.areas.map((area, areaIndex) => (
-                      <span
-                        key={areaIndex}
-                        className="bg-slate-100 text-slate-600 text-xs px-3 py-1 rounded-full"
-                      >
-                        {area}
-                      </span>
+                  <ul className="space-y-2">
+                    {service.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-crimson-600" />
+                        <span className="text-slate-600 text-sm">{feature}</span>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
                 <Link href="/contact">
-                  <button className="w-full bg-crimson-600 hover:bg-crimson-700 text-white py-2.5 rounded-full transition-all duration-200 font-medium text-sm">
-                    Explore Industry
+                  <button className="w-full bg-crimson-600 hover:bg-crimson-700 text-white py-3 rounded-full transition-all duration-200 font-medium">
+                    Learn More
                   </button>
                 </Link>
               </div>
@@ -152,103 +198,63 @@ export default function IndustriesPage() {
         </div>
       </section>
 
-      {/* Cross-Industry Capabilities */}
+      {/* Why Choose Us */}
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              Cross-Industry Capabilities
+              Why Choose Crimson Industries?
             </h2>
             <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-              Our comprehensive capabilities span across industries, providing
-              consistent excellence and leveraging best practices from multiple
-              sectors.
+              Our unique approach combines proven methodologies with innovative
+              technology to deliver exceptional results.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {capabilities.map((capability, index) => (
+          <div className="grid md:grid-cols-3 gap-8">
+            {reasons.map((reason, index) => (
               <div
                 key={index}
-                className="bg-white border border-slate-200 rounded-2xl p-6 shadow-lg"
+                className="bg-white border border-slate-200 rounded-2xl p-8 text-center shadow-lg"
               >
-                <div className="w-14 h-14 bg-crimson-100 rounded-xl flex items-center justify-center mb-4">
-                  <capability.icon className="w-7 h-7 text-crimson-600" />
+                <div className="w-16 h-16 bg-gradient-to-br from-crimson-500 to-crimson-700 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                  <span className="text-white text-2xl font-bold">
+                    {reason.number}
+                  </span>
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">
-                  {capability.title}
+                <h3 className="text-xl font-semibold text-slate-900 mb-3">
+                  {reason.title}
                 </h3>
-                <p className="text-slate-600 text-sm">{capability.description}</p>
+                <p className="text-slate-600">{reason.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-20 bg-gradient-to-br from-crimson-600 to-crimson-800 text-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Transforming Industries Through Innovation
-            </h2>
-            <p className="text-lg text-crimson-100 max-w-3xl mx-auto">
-              Our industry-focused approach enables us to deliver solutions that
-              not only meet current requirements but anticipate future needs. We
-              leverage cross-industry insights to drive innovation and create
-              lasting value.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-4xl font-bold mb-2">93+</div>
-              <div className="text-crimson-200 font-medium">
-                Projects Delivered
-              </div>
-              <div className="text-crimson-300 text-sm">
-                Across All Industries
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold mb-2">18</div>
-              <div className="text-crimson-200 font-medium">Countries</div>
-              <div className="text-crimson-300 text-sm">Global Presence</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold mb-2">5</div>
-              <div className="text-crimson-200 font-medium">Core Industries</div>
-              <div className="text-crimson-300 text-sm">
-                Specialized Expertise
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold mb-2">100%</div>
-              <div className="text-crimson-200 font-medium">
-                Client Satisfaction
-              </div>
-              <div className="text-crimson-300 text-sm">Proven Results</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gradient-to-br from-crimson-600 to-crimson-800 text-white">
         <div className="max-w-4xl mx-auto text-center px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-            Partner With Industry Leaders
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Ready to Transform Your Project?
           </h2>
-          <p className="text-lg text-slate-600 mb-8">
-            Ready to leverage our industry expertise for your next project?
-            Contact us to discuss how our specialized knowledge can drive
-            success in your sector.
+          <p className="text-lg text-crimson-100 mb-8">
+            Let&apos;s discuss how our comprehensive service portfolio can drive
+            your project to success. Our experts are ready to provide customized
+            solutions tailored to your specific requirements.
           </p>
-          <Link href="/contact">
-            <button className="bg-crimson-600 hover:bg-crimson-700 text-white px-8 py-4 rounded-full transition-all duration-200 shadow-lg hover:shadow-xl font-medium">
-              Start Your Project
-            </button>
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/contact">
+              <button className="bg-white text-crimson-700 hover:bg-crimson-50 px-8 py-4 rounded-full transition-all duration-200 shadow-lg hover:shadow-xl font-medium">
+                Get Started Today
+              </button>
+            </Link>
+            <Link href="/about">
+              <button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-crimson-700 px-8 py-4 rounded-full transition-all duration-200 font-medium">
+                Learn More About Crimson Industries
+              </button>
+            </Link>
+          </div>
         </div>
       </section>
     </div>
