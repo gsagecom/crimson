@@ -94,9 +94,7 @@ export default function IndustriesPage() {
             Industries We Serve
           </h1>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            Delivering intelligent infrastructure solutions across critical
-            industries, from telecommunications and emergency services to cyber
-            security and public safety systems.
+            Crimson Industries Corporation delivers mission-critical infrastructure to government clients operating in complex, high-stakes environments. We specialise in programmes where failure is not an option.
           </p>
         </div>
       </section>
