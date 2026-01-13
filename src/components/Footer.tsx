@@ -27,7 +27,7 @@ export function Footer() {
               Reimagining Possibilities, Embracing Tomorrow&apos;s Intelligent Infrastructure
             </p>
             <p className="text-slate-400 leading-relaxed text-sm">
-              We are a specialist taskforce established to transcend traditional project management boundaries, forging strategic partnerships with global leaders to provide transformative infrastructure solutions.
+              We provide programme delivery, governance oversight, and technical advisory services for national infrastructure projects, with particular expertise in emergency services and digital systems.
             </p>
           </div>
 
@@ -93,7 +93,7 @@ export function Footer() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-slate-500 text-sm">
-              &copy; 2024 Crimson Industries Corporation. All rights reserved.
+              &copy; 2026 Crimson Industries Corporation. All rights reserved.
             </p>
             <div className="flex space-x-6">
               <Link href="/privacy" className="text-slate-500 hover:text-crimson-400 text-sm transition-colors">
