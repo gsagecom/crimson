@@ -120,7 +120,7 @@ export default function Home() {
               Crimson Industries Corporation provides programme leadership and systems delivery for government clients operating in high-stakes, complex environments. Our focus: next-generation emergency services infrastructure, secure government communications, and multi-year transformation programmes requiring coordination across jurisdictions, agencies, and political stakeholders.
             </p>
              <p className="text-lg text-slate-600 max-w-4xl mx-auto leading-relaxed">
-               We work where the margin for error is zero - national emergency response systems, critical communications infrastructure, and programmes under ministerial scrutiny.             </p>p>
+               We work where the margin for error is zero - national emergency response systems, critical communications infrastructure, and programmes under ministerial scrutiny.             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
