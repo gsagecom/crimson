@@ -83,15 +83,14 @@ export default function Home() {
         <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-crimson-400 font-semibold tracking-wide uppercase mb-4">
-              CRIMSON INDUSTRIES TASKFORCE
+              Programme Delivery & Critical Infrastructure
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Next-Gen Programme Delivery for your most{" "}
-              <span className="text-crimson-500">Complex Initiatives</span>
+              National Infrastructure Delivery for{" "}
+              <span className="text-crimson-500">CGovernment & Public Safety</span>
             </h1>
             <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-              Predictable transformation through Next Generation governance, technology, and
-              disciplined execution.
+              We deliver emergency communications systems, secure networks, and large-scale transformation programmes where failure is not an option.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/contact">
@@ -115,14 +114,13 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-              Making Tomorrow&apos;s Intelligent Infrastructure Possible
+              Programme Leadership for High-Stakes Environments
             </h2>
             <p className="text-lg text-slate-600 max-w-4xl mx-auto leading-relaxed">
-              We are a specialist global reach taskforce established to transcend
-              traditional project management boundaries, through strategic
-              partnerships with global leaders to provide transformative
-              infrastructure solutions that shape the future.
+              Crimson Industries Corporation provides programme leadership and systems delivery for government clients operating in high-stakes, complex environments. Our focus: next-generation emergency services infrastructure, secure government communications, and multi-year transformation programmes requiring coordination across jurisdictions, agencies, and political stakeholders.
             </p>
+             <p className="text-lg text-slate-600 max-w-4xl mx-auto leading-relaxed">
+               We work where the margin for error is zero - national emergency response systems, critical communications infrastructure, and programmes under ministerial scrutiny.             </p>p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
