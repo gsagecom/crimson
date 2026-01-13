@@ -210,7 +210,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="bg-crimson-700 text-white p-6 rounded-2xl text-center">
-                <div className="text-3xl font-bold mb-1">£600M+</div>
+                <div className="text-3xl font-bold mb-1">£12B+</div>
                 <div className="text-crimson-200 text-sm">
                   In programme value delivered
                 </div>
