@@ -218,7 +218,7 @@ export default function Home() {
               <div className="bg-crimson-800 text-white p-6 rounded-2xl text-center">
                 <div className="text-3xl font-bold mb-1">27</div>
                 <div className="text-crimson-200 text-sm">
-                  Countries across UK, EU, Americas, and Africa
+                  Countries across UK, EU, Americas, Middle East and Africa
                 </div>
               </div>
             </div>
@@ -284,7 +284,7 @@ export default function Home() {
 
           <div className="flex justify-center gap-8 mt-12">
             <div className="text-center">
-              <div className="text-3xl font-bold text-crimson-600">£600M+</div>
+              <div className="text-3xl font-bold text-crimson-600">USD12B+</div>
               <div className="text-slate-600 text-sm">Value Delivered</div>
             </div>
             <div className="text-center">
