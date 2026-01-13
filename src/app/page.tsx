@@ -87,7 +87,7 @@ export default function Home() {
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
               National Infrastructure Delivery for{" "}
-              <span className="text-crimson-500">CGovernment & Public Safety</span>
+              <span className="text-crimson-500">Government & Public Safety</span>
             </h1>
             <p className="text-xl text-slate-300 mb-8 leading-relaxed">
               We deliver emergency communications systems, secure networks, and large-scale transformation programmes where failure is not an option.
