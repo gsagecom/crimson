@@ -240,7 +240,7 @@ export default function ServicesPage() {
           </h2>
           <p className="text-lg text-crimson-100 mb-8">
             Let&apos;s discuss how our comprehensive service portfolio can drive
-            your project to success. Our experts are ready to provide customized
+            your project to success. Our experts are ready to provide customised
             solutions tailored to your specific requirements.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
