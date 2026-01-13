@@ -104,8 +104,8 @@ export default function Home() {
               Programme Delivery & Critical Infrastructure
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              National Infrastructure Delivery for{" "}
-              <span className="text-crimson-500">Government & Public Safety</span>
+              Advancing Critical Infrastructure for{" "}
+              <span className="text-crimson-500">Government & Public Security</span>
             </h1>
             <p className="text-xl text-slate-300 mb-8 leading-relaxed">
               We deliver emergency communications systems, secure networks, and
