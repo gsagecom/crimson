@@ -27,7 +27,7 @@ export function Footer() {
               Reimagining Possibilities, Embracing Tomorrow&apos;s Intelligent Infrastructure
             </p>
             <p className="text-slate-400 leading-relaxed text-sm">
-              We provide programme delivery, governance oversight, and technical advisory services for national infrastructure projects, with particular expertise in emergency services and digital systems.
+              We provide programme architects, delivery, governance oversight, and technical advisory services for national infrastructure projects, with particular expertise in emergency services and digital systems.
             </p>
           </div>
 
