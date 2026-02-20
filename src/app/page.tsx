@@ -108,8 +108,7 @@ export default function Home() {
               <span className="text-crimson-500">Government & Public Security</span>
             </h1>
             <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-              We deliver emergency communications systems, secure networks, and
-              large-scale transformation programmes where failure is not an option.
+              We deliver large-scale transformation programmes, emergency communications systems and secure networks where failure is not an option.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/contact">
