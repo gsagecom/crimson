@@ -103,7 +103,7 @@ export default function AboutPage() {
               </h2>
               <p className="text-xl text-slate-600 leading-relaxed">
                 Founded as G Sage and Associates in 1993 and acquired by Madison488 Ltd in 2013 we are
-                a cconsortium of industry experts, the Crimson Industries Corporation,
+                a consortium of program architects and industry experts, the Crimson Industries Corporation,
                 Programme Management Taskforce transcends mere project management,
                 we forge strategic partnerships with global leaders and provide
                 transformative infrastructure solutions. We deliver beyond simply
