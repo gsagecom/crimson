@@ -359,7 +359,7 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-bold text-slate-900">Our Location</h3>
                       <p className="text-slate-600">
-                        Unit 5, Stroude Farm, Virginia Water, Surrey, GU25 4BY
+                        Stoneleigh Park, Surrey, KT13 0DZ
                       </p>
                     </div>
                   </div>

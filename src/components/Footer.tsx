@@ -78,9 +78,7 @@ export function Footer() {
               <div>
                 <p className="text-slate-500 text-sm">Address:</p>
                 <p className="text-slate-300">
-                  Unit 5, Stroude Farm,<br />
-                  Virginia Water, Surrey,<br />
-                  GU25 4BY
+                  Stoneleigh Park, Surrey, KT13 0DZ<br />
                 </p>
               </div>
             </div>
