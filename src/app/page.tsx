@@ -108,7 +108,7 @@ export default function Home() {
               <span className="text-crimson-500">Government & Public Security</span>
             </h1>
             <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-              We deliver large-scale transformation programmes, emergency communications systems and secure networks where failure is not an option. Our Mission: "To become the defining emergency response infrastructure of Sub-Saharan Africa — modernising 911/999/112 systems with next-generation technology that governments trust, communities depend on, and no nation can afford to ignore.
+              We deliver large-scale transformation programmes, emergency communications systems and secure networks where failure is not an option. Our Mission: To be the first and defining force in Next Generation Emergency Services across Sub-Saharan Africa — connecting every community, in every corner of the continent, to the help they deserve.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/contact">
