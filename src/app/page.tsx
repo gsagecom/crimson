@@ -111,7 +111,7 @@ export default function Home() {
               Our Mission: "The deliver the emergency infrastructure Africa deserves.
             </p>
             <p className="text-xl text-slate-300 mb-8 leading-relaxed"></p>
-            "We will close the emergency response gap in Sub-Saharan Africa  and deliver Next-Generation 911/999/112 systems that transform how governments protect their citizens, and redefine what public safety looks like for 1.5 Billion people on a continent on the rise.
+            "We aim to close the emergency response gap in Sub-Saharan Africa  and deliver Next-Generation 911/999/112 systems that transform how governments protect their citizens, and redefine what public safety looks like for 1.5 Billion people on a continent on the rise.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/contact">
